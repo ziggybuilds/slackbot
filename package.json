@@ -20,7 +20,7 @@
     "hubot-slack": "^4.4.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.x"
   },
   "scripts": {
     "start": "HUBOT_SLACK_TOKEN=xoxb-247272448225-phkeJZoDrAKPTRxKwLPYsSYF ./bin/hubot --adapter='slack'"
