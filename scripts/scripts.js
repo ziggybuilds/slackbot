@@ -1,4 +1,3 @@
-module.exports = (robot) ->
-
-  robot.hear /bb8/i, (res) ->
-    robot.logger.debug "Received message #{res.message.text}"
+bot.respond(/What's your favorite food?/, function(res) {
+  return res.send("I'm a robot--I don't eat food!");
+});
