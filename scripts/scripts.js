@@ -1,3 +1,4 @@
-bb8.hear(/BB8/, function(res) {
-  return res.send("Hi there!");
-});
+module.exports = (robot) ->
+
+  robot.hear /bb8/i, (res) ->
+    robot.logger.debug "Received message #{res.message.text}"
