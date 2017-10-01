@@ -1,3 +1,3 @@
-bot.respond(/What's your favorite food?/, function(res) {
-  return res.send("I'm a robot--I don't eat food!");
+bot.hear(/TESTBB8/, function(res) {
+  return res.send("I am alive!");
 });
