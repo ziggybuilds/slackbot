@@ -4,7 +4,7 @@ module.exports = function(bb8) {
 		var name2;
 		name1 = msg.match[1];
 		name2 = msg.match[2];
-	  return res.send("Welcome " + name1 + " and " + name2 + ". Have a glorious day");
+	  return msg.send("Welcome " + name1 + " and " + name2 + ". Have a glorious day");
 	});
 
 
