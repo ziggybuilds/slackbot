@@ -1,5 +1,5 @@
 module.exports = function(bb8) {
-	bb8.respond(/Please welcome (.*) and (.*)/, function(res) {
+	bb8.respond(/Please welcome (.*) and (.*)/i, function(msg) {
 		var name1;
 		var name2;
 		name1 = msg.match[1];
