@@ -41,18 +41,30 @@ bb8.respond(/Quote: (.*)/i, function(msg) {
 	var input = msg.match[1];
 	var filtered = input.toLowerCase();
 
-	if (filtered == "leia") {
-		return msg.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + input);
-	} else if (filtered == "vader" || filtered == "darth vader") {
-		return msg.send('“I find your lack of faith disturbing.” — ' + input);
-	} else if (filtered == "yoda") {
-		return msg.send('“Do. Or do not. There is no try.” - ' + input);
-	} else if (filtered == "solo" || filtered == "han solo" || filtered == "han") {
-		return msg.send('“Never tell me the odds! — ”' + input);
-	} else if (filtered == "luke" || filtered == "skywalker" || filtered == "luke skywalker") {
-		return msg.send('“I find your lack of faith disturbing.” — ' + input);
-	} else {
-		return msg.send(input + ' is not included, Please try again.');
+	switch(filtered) {
+		case "leia":
+			return msg.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + input);
+			break;
+		case "vader":
+		case "darth vader":
+			return msg.send('“I find your lack of faith disturbing.” — ' + input);
+			break;
+		case "yoda":
+			return msg.send('“Do. Or do not. There is no try.” - ' + input);
+			break;
+		case "solo":
+		case "han solo":
+		case "han":
+			return msg.send('“Never tell me the odds! — ”' + input);
+			break;
+		case "luke":
+		case "skywalker":
+		case "luke skywalker":
+			return msg.send('“NOOOOOOOOOOOOO!” — ' + input);
+			break;
+		default:
+			return msg.send(input + ' is not included, Please try again.');
+			break;
 	}
 });
 
@@ -121,7 +133,19 @@ bb8.hear(/list resources/, function(res) {
 
 // bb8 clear resources list
 bb8.hear(/clear resources/, function(res) {
-	var resources = [];
+
+	var values = "";
+
+	resources.splice(0, resources.length);
+
+	return res.reply('Removed all values. @bb8 list resources will return none');
+});
+
+// bb8 remove latest entry
+bb8.hear(/pop resources/, function(res) {
+	var value = resources.pop();
+
+	return res.reply('Removed: ' + value.url);
 });
 
 // bb8 send resources to myself or someone else
