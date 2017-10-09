@@ -88,7 +88,7 @@ bb8.respond(/Who is (.*)?/i, function(msg) {
 // Get photo based on search query
 bb8.respond(/Get photo of (.*)/i, function(msg) {
 	var pic = msg.match[1].toLowerCase();
-	var url = "https://source.unsplash.com/?" + pic;
+	var url = "https://source.unsplash.com/featured/?" + pic;
 
 	return msg.reply("Here is a pic of: " + pic + ". " + url);
 });
