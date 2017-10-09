@@ -76,11 +76,12 @@ bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 	}
 });
 
-// Ouput all users
+// Get random photo from Unsplash
 bb8.respond(/Who is (.*)?/i, function(msg) {
-	name = msg.match[1];
+	var name = msg.match[1];
 
-	users = bb8.brain.usersForFuzzyName(name);
+
+	var users = bb8.brain.usersForFuzzyName(name);
 	return msg.reply(name + " is the same as " + users);
 });
 
