@@ -125,7 +125,7 @@ bb8.hear(/send resources to (.*)/i, function(msg) {
 	var person = msg.match[1];
 
 	// loop through resources
-	var display;
+	var display = "";
 	for(var i = 0; i < resources.length; i++) {
 		var display = display + "\n" + resources[i].url + " : " + resources[i].note;
 	}
@@ -136,10 +136,6 @@ bb8.hear(/send resources to (.*)/i, function(msg) {
 		return res.reply('There was an error.')
 	}
 });
-
-// bb8 email this resource to me?
-
-
 
 
 }
