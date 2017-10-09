@@ -76,13 +76,21 @@ bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 	}
 });
 
-// Get random photo from Unsplash
+// Use robot.brain
 bb8.respond(/Who is (.*)?/i, function(msg) {
 	var name = msg.match[1];
 
 
 	var users = bb8.brain.usersForFuzzyName(name);
 	return msg.reply(name + " is the same as " + users);
+});
+
+// Get photo based on search query
+bb8.respond(/Get photo of (.*)/i, function(msg) {
+	var pic = msg.match[1].toLowerCase();
+	var url = "https://source.unsplash.com/?" + pic;
+
+	return msg.reply("Here is a pic of: " + pic + ". " + url);
 });
 
 
