@@ -76,15 +76,7 @@ bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 	}
 });
 
-// Use robot.brain
-bb8.respond(/Who is (.*)?/i, function(msg) {
-	var name = msg.match[1];
-
-
-	var users = bb8.brain.usersForFuzzyName(name);
-	return msg.reply(name + " is the same as " + users);
-});
-
+// Image and text together
 // Get photo based on search query
 bb8.respond(/Get photo of (.*)/i, function(msg) {
 	var pic = msg.match[1].toLowerCase();
@@ -93,6 +85,52 @@ bb8.respond(/Get photo of (.*)/i, function(msg) {
 	return msg.reply("Here is a pic of: " + pic + ". " + url);
 });
 
+/***************************
+END BASIC ABILITIES,
+BEGIN FUNCTIONAL PROGRAM
+***************************/
+
+// save js resources
+// define array
+var resources = [];
+
+bb8.hear(/save resource (.*)/i, function(msg) {
+	var resource = msg.match[1];
+
+	resources.push(resource);
+
+	return msg.reply("I have saved the resource");
+});
+
+// bb8 list resources
+bb8.hear(/list resources/, function(res) {
+	var display;
+	for(var i = 0; i < resources.length; i++) {
+		var display = display + "\n" + resources[i];
+	}
+
+	return res.reply(display);
+});
+
+
+// bb8 send resources to myself or someone else
+bb8.hear(/send resources to (.*)/i, function(msg) {
+	var person = msg.match[1].substring(1);
+
+	// loop through resources
+	var display;
+	for(var i = 0; i < resources.length; i++) {
+		var display = display + "\n" + resources[i];
+	}
+
+	try {
+		return bb8.messageRoom(person, resources);
+	} catch(error) {
+		return res.reply('There was an error.')
+	}
+});
+
+// bb8 email this resource to me?
 
 
 
