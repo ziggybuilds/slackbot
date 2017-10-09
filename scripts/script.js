@@ -42,40 +42,50 @@ bb8.respond(/Quote: (.*)/i, function(msg) {
 	var filtered = input.toLowerCase();
 
 	if (filtered == "leia") {
-		return msg.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + filtered);
-	} else if (filtered == "vader" || filtered = "darth vader") {
-		return msg.send('“I find your lack of faith disturbing.” — ' + filtered);
+		return msg.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + input);
+	} else if (filtered == "vader" || filtered == "darth vader") {
+		return msg.send('“I find your lack of faith disturbing.” — ' + input);
 	} else if (filtered == "yoda") {
-		return msg.send('“Do. Or do not. There is no try.” - ' + filtered);
-	} else if (filtered == "solo" || filtered = "han solo" || filtered == "han") {
-		return msg.send('“Never tell me the odds! — ”' + filtered);
-	} else if (filtered == "luke" || filtered = "skywalker" || filtered == "luke skywalker") {
-		return msg.send('“I find your lack of faith disturbing.” — ' + filtered);
+		return msg.send('“Do. Or do not. There is no try.” - ' + input);
+	} else if (filtered == "solo" || filtered == "han solo" || filtered == "han") {
+		return msg.send('“Never tell me the odds! — ”' + input);
+	} else if (filtered == "luke" || filtered == "skywalker" || filtered == "luke skywalker") {
+		return msg.send('“I find your lack of faith disturbing.” — ' + input);
 	} else {
-		return msg.send(filtered + ' is not included, Please try again.');
+		return msg.send(input + ' is not included, Please try again.');
 	}
 });
 
 
 // Random output
+// Uses reply method
 // Is user Jedi or Sith lord?
-/*
 bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 	var name = msg.match[1];
 	var side = ['sith lord', 'jedi knight', 'path has yet to be found'];
 
-	var fate = res.random(side);
+	var fate = msg.random(side);
 	if (fate == 'sith lord') {
-		return msg.send(name + " is a " + fate + ". Do not fall to their power.");
+		return msg.reply(name + " is a " + fate + ". Do not fall to their power.");
 	}
 	else if (fate == 'jedi knight') {
-		return msg.send(name + " is a " + fate + ". They will be faithful.");
+		return msg.reply(name + " is a " + fate + ". They will be faithful.");
 	}
 	else if (fate == 'path has yet to be found') {
-		return msg.send(name + "'s " + fate + ". Guide them.");
+		return msg.reply(name + "'s " + fate + ". Guide them.");
 	}
 });
-*/
+
+// Ouput all users
+bb8.respond(/Who is (.*)?/i, function(msg) {
+	name = msg.match[1];
+
+	users = bb8.brain.usersForFuzzyName(name);
+	return msg.reply(name + " is the same as " + users);
+});
+
+
+
 
 
 }
