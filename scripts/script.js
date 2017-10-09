@@ -94,10 +94,16 @@ BEGIN FUNCTIONAL PROGRAM
 // define array
 var resources = [];
 
-bb8.hear(/save resource (.*)/i, function(msg) {
-	var resource = msg.match[1];
+bb8.hear(/save resource (.*) : (.*)/i, function(msg) {
+	var resource = msg.match[1] + " ";
+	var note = " " + msg.match[2] || "";
 
-	resources.push(resource);
+	var bundle = {
+		"url": resource,
+		"note": note
+	};
+
+	resources.push(bundle);
 
 	return msg.reply("I have saved the resource");
 });
@@ -106,7 +112,7 @@ bb8.hear(/save resource (.*)/i, function(msg) {
 bb8.hear(/list resources/, function(res) {
 	var display;
 	for(var i = 0; i < resources.length; i++) {
-		var display = display + "\n" + resources[i];
+		var display = display + "\n" + resources[i].url + " : " + resources[i].note;
 	}
 
 	return res.reply(display);
@@ -115,16 +121,16 @@ bb8.hear(/list resources/, function(res) {
 
 // bb8 send resources to myself or someone else
 bb8.hear(/send resources to (.*)/i, function(msg) {
-	var person = msg.match[1].substring(1);
+	var person = msg.match[1];
 
 	// loop through resources
 	var display;
 	for(var i = 0; i < resources.length; i++) {
-		var display = display + "\n" + resources[i];
+		var display = display + "\n" + resources[i].url + " : " + resources[i].note;
 	}
 
 	try {
-		return bb8.messageRoom(person, resources);
+		return res.messageRoom(person, display);
 	} catch(error) {
 		return res.reply('There was an error.')
 	}
