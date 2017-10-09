@@ -36,9 +36,9 @@ bb8.respond(/Who started the war?/i, function(res) {
 });
 
 // Conditional user input to output quotes based on character
-bb8.respond(/(.*)/i, function(msg) {
+bb8.respond(/Quote: (.*)/i, function(msg) {
 	var input = msg.match[1];
-	var filtered = input..toLowerCase();
+	var filtered = input.toLowerCase();
 
 	if (filtered == "leia") {
 		return msg.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + filtered);
