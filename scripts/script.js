@@ -86,8 +86,8 @@ bb8.respond(/Get photo of (.*)/i, function(msg) {
 });
 
 /***************************
-END BASIC ABILITIES,
-BEGIN FUNCTIONAL PROGRAM
+END OF BASIC ABILITIES,
+BEGIN RESOURCES PROGRAM
 ***************************/
 
 // save js resources
@@ -96,8 +96,8 @@ var resources = [];
 
 // save resource function
 bb8.hear(/save resource (.*) : (.*)/i, function(msg) {
-	var resource = msg.match[1] + " ";
-	var note = " " + msg.match[2] || "";
+	var resource = msg.match[1];
+	var note = msg.match[2] || "";
 
 	var bundle = {
 		"url": resource,
@@ -111,7 +111,7 @@ bb8.hear(/save resource (.*) : (.*)/i, function(msg) {
 
 // bb8 list resources
 bb8.hear(/list resources/, function(res) {
-	var display;
+	var display = "";
 	for(var i = 0; i < resources.length; i++) {
 		var display = display + "\n" + resources[i].url + " : " + resources[i].note;
 	}
