@@ -94,6 +94,7 @@ BEGIN FUNCTIONAL PROGRAM
 // define array
 var resources = [];
 
+// save resource function
 bb8.hear(/save resource (.*) : (.*)/i, function(msg) {
 	var resource = msg.match[1] + " ";
 	var note = " " + msg.match[2] || "";
@@ -130,7 +131,7 @@ bb8.hear(/send resources to (.*)/i, function(msg) {
 	}
 
 	try {
-		return res.messageRoom(person, display);
+		return bb8.messageRoom(person, display);
 	} catch(error) {
 		return res.reply('There was an error.')
 	}
