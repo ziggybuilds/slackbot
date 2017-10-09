@@ -6,6 +6,4 @@ module.exports = function(bb8) {
 		name2 = msg.match[2];
 	  return msg.reply("Welcome " + name1 + " and " + name2 + ". Have a glorious day");
 	});
-
-
 }
