@@ -119,6 +119,10 @@ bb8.hear(/list resources/, function(res) {
 	return res.reply(display);
 });
 
+// bb8 clear resources list
+bb8.hear(/clear resources/, function(res) {
+	var resources = [];
+});
 
 // bb8 send resources to myself or someone else
 bb8.hear(/send resources to (.*)/i, function(msg) {
