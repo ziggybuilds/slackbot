@@ -31,30 +31,27 @@ bb8.hear(/The force?/, function(res) {
 });
 
 // Who started the war?
-bb8.respond(/Who started the war?/i, function() {
+bb8.respond(/Who started the war?/i, function(res) {
 	return res.send("Rebel scum");
 });
 
 // Conditional user input to output quotes based on character
 bb8.respond(/(.*)/i, function(msg) {
-	var input = msg.match[1].toLowerCase();
+	var input = msg.match[1];
+	var filtered = input..toLowerCase();
 
-	if (input == "leia") {
-		return res.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + input);
-	}
-	else if (input == "vader" || input = "darth vader") {
-		return res.send('“I find your lack of faith disturbing.” — ' + input);
-	}
-	else if (input == "yoda") {
-		return res.send('“Do. Or do not. There is no try.” - ' + input);
-	}
-	else if (input == "solo" || input = "han solo" || input == "han") {
-		return res.send('“Never tell me the odds! — ”' + input);
-	}
-	else if (input == "luke" || input = "skywalker" || input == "luke skywalker") {
-		return res.send('“I find your lack of faith disturbing.” — ' + input);
+	if (filtered == "leia") {
+		return msg.send('"Help me, Obi-Wan Kenobi. You’re my only hope.” — ' + filtered);
+	} else if (filtered == "vader" || filtered = "darth vader") {
+		return msg.send('“I find your lack of faith disturbing.” — ' + filtered);
+	} else if (filtered == "yoda") {
+		return msg.send('“Do. Or do not. There is no try.” - ' + filtered);
+	} else if (filtered == "solo" || filtered = "han solo" || filtered == "han") {
+		return msg.send('“Never tell me the odds! — ”' + filtered);
+	} else if (filtered == "luke" || filtered = "skywalker" || filtered == "luke skywalker") {
+		return msg.send('“I find your lack of faith disturbing.” — ' + filtered);
 	} else {
-		return res.send(input + ' is not included, Please try again.');
+		return msg.send(filtered + ' is not included, Please try again.');
 	}
 });
 
@@ -67,13 +64,13 @@ bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 
 	var fate = res.random(side);
 	if (fate == 'sith lord') {
-		return res.send(name + " is a " + fate + ". Do not fall to their power.");
+		return msg.send(name + " is a " + fate + ". Do not fall to their power.");
 	}
 	else if (fate == 'jedi knight') {
-		return res.send(name + " is a " + fate + ". They will be faithful.");
+		return msg.send(name + " is a " + fate + ". They will be faithful.");
 	}
 	else if (fate == 'path has yet to be found') {
-		return res.send(name + "'s " + fate + ". Guide them.");
+		return msg.send(name + "'s " + fate + ". Guide them.");
 	}
 });
 */
