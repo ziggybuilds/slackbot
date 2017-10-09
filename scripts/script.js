@@ -35,7 +35,7 @@ bb8.respond(/Who started the war?/i, function(res) {
 	return res.send("Rebel scum");
 });
 
-/*
+
 // Conditional user input to output quotes based on character
 bb8.respond(/Quote: (.*)/i, function(msg) {
 	var input = msg.match[1];
@@ -55,7 +55,7 @@ bb8.respond(/Quote: (.*)/i, function(msg) {
 		return msg.send(filtered + ' is not included, Please try again.');
 	}
 });
-*/
+
 
 // Random output
 // Is user Jedi or Sith lord?
