@@ -36,7 +36,7 @@ bb8.respond(/Who started the war?/i, function() {
 });
 
 // Conditional user input to output quotes based on character
-bb8.respond(/(.*)/, function(msg) {
+bb8.respond(/(.*)/i, function(msg) {
 	var input = msg.match[1].toLowerCase();
 
 	if (input == "leia") {
@@ -60,6 +60,7 @@ bb8.respond(/(.*)/, function(msg) {
 
 // Random output
 // Is user Jedi or Sith lord?
+/*
 bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 	var name = msg.match[1];
 	var side = ['sith lord', 'jedi knight', 'path has yet to be found'];
@@ -75,7 +76,7 @@ bb8.respond(/Is (.*) to be trusted?/i, function(msg) {
 		return res.send(name + "'s " + fate + ". Guide them.");
 	}
 });
-
+*/
 
 
 }
