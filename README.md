@@ -11,7 +11,7 @@ npm run start
 ```
 This will run:
 ```
-"start": "HUBOT_SLACK_TOKEN=xoxb-247272448225-phkeJZoDrAKPTRxKwLPYsSYF ./bin/hubot --adapter='slack'"
+"start": "HUBOT_SLACK_TOKEN={token goes here} ./bin/hubot --adapter='slack'"
 ```
 
 ## Slackbot Functionality
