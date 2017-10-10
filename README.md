@@ -64,7 +64,9 @@ These are all ```hear``` methods, therefore users do not need to call "@BB8".
 returns a list of resources in this format:
 
 [link] : [description]
+
 [link] : [description]
+
 [link] : [description]
 
 ### Clear Resources
