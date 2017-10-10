@@ -5,11 +5,6 @@ Built using the myhubot slackbot generator
 Documentation for myhubot can be found below
 
 ## Running Locally
-To run locally:
-```
-npm run start
-```
-This will run:
 ```
 "start": "HUBOT_SLACK_TOKEN={token goes here} ./bin/hubot --adapter='slack'"
 ```
