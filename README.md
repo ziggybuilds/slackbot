@@ -1,6 +1,7 @@
 # BB8: Slackbot
 
 Built using the myhubot slackbot generator
+
 Documentation for myhubot can be found below
 
 ## Running Locally
@@ -16,14 +17,17 @@ This will run:
 ## Slackbot Functionality
 ### Check for signs of life
 BB8 will listen for: "The force?"
+
 BB8 will return: "*droid noises*"
 
 ### Basic respond
 BB8 will listen for: "@BB8 Who started the war?"
+
 BB8 will return: "Rebel scum"
 
 ### Conditional respones
 BB8 will listen for: "@BB8 Quote: [name]"
+
 BB8 will return a quote based on the [name] provided.
 
 Acceptable [name] values are (close derivatives of these values will work):
@@ -35,6 +39,7 @@ Acceptable [name] values are (close derivatives of these values will work):
 
 ### Random Output
 BB8 will listen for: "@BB8 Is [name] to be trusted?"
+
 BB8 will return one value and a corresponding statement from an array of:
 ```
 'sith lord', 'jedi knight', 'path has yet to be found'
@@ -42,10 +47,12 @@ BB8 will return one value and a corresponding statement from an array of:
 
 ### Picture Output
 BB8 will listen for: "@BB8 Get photo of [item]"
+
 BB8 will return a random photo from [Unsplash](www.unsplash.com) and some text.
 
 ## Resource Saver
 BB8 can be used to send and store a list of resources
+
 These are all ```hear``` methods, therefore users do not need to call "@BB8".
 
 ### Add Resource
@@ -53,21 +60,26 @@ These are all ```hear``` methods, therefore users do not need to call "@BB8".
 
 ### List Resources
 "list resources"
+
 returns a list of resources in this format:
+
 [link] : [description]
 [link] : [description]
 [link] : [description]
 
 ### Clear Resources
 "clear resources"
+
 This will remove all resources from the saved list. 
 
 ### Pop Resources
 "pop resources"
+
 This will remove the most recent addition
 
 ### Send Resources
 "send resources to [name]"
+
 This will send the resources to a specific person via a direct message with @BB8. Failure to @[name] will throw an error.
 
 ***
